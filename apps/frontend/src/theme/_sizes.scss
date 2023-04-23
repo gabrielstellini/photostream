@@ -1,0 +1,18 @@
+// It is important to keep spacing consistent between the app and the design
+// The rules should be added here
+
+$font-xs: 0.25rem;
+$font-s: 0.5rem;
+$font-md: 1rem;
+$font-l: 1rem;
+$font-xl: 3rem;
+
+$spacing-base: 4px;
+
+$spacing-xxs: $spacing-base; // 4px
+$spacing-xs: 2 * $spacing-base; // 8px
+$spacing-s: 3 * $spacing-base; // 12px
+$spacing-m: 4 * $spacing-base; // 16px
+$spacing-l: 6 * $spacing-base; // 24px
+$spacing-xl: 8 * $spacing-base; // 32px
+$spacing-xxl: 12 * $spacing-base; // 48px

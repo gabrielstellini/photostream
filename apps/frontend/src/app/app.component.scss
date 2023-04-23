@@ -1,0 +1,6 @@
+// Demo for stylePreprocessorOptions
+@use 'sizes' as sizes;
+
+section {
+  padding: sizes.$spacing-xxl;
+}
