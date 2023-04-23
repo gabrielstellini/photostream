@@ -2,7 +2,9 @@
   "name": "nestangular-template",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start-all": "nx run-many --target=serve --all"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~15.2.0",
