@@ -1,13 +1,16 @@
 import { Route } from '@angular/router';
+import { importProvidersFrom } from '@angular/core';
+import { PhotoStoreModule } from '../store/photo/photo-store.module';
 
 export const appRoutes: Route[] = [
   {
     path: '',
     pathMatch: 'full',
     loadComponent: () =>
-      import('./photo-container/photo-container.component').then(
-        (m) => m.PhotoContainerComponent
+      import('./photos-container/photos-container.component').then(
+        (m) => m.PhotosContainerComponent
       ),
+    providers: [importProvidersFrom(PhotoStoreModule)],
   },
   {
     path: 'favourites',
