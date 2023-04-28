@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start-all": "nx run-many --target=serve --all"
+    "backend": "json-server --watch db.json",
+    "start-all": "concurrently --kill-others \" nx run-many --target=serve -p frontend\"  \"npm run backend\""
   },
   "private": true,
   "dependencies": {
@@ -62,6 +63,7 @@
     "@types/node": "~18.7.1",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
+    "concurrently": "^8.0.1",
     "cypress": "^12.2.0",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
@@ -71,6 +73,7 @@
     "jest-environment-jsdom": "^29.4.1",
     "jest-environment-node": "^29.4.1",
     "jest-preset-angular": "~13.0.0",
+    "json-server": "^0.17.3",
     "nx": "15.9.2",
     "prettier": "^2.6.2",
     "ts-jest": "^29.0.5",
