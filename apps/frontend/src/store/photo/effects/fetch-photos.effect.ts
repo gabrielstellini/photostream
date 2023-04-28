@@ -26,15 +26,6 @@ export class FetchPhotosEffect {
           this.store.select(selectPhotosPagination),
           this.store.select(selectPhotosLoading),
         ]),
-        // Prevent further logic when: the page exceeds the maximum or the previous page is still loading
-        // Allow further logic when there is no page currently loaded
-        // filter(
-        //   ([_, { maxPage, lastLoadedPage }, loading]) =>
-        //     (lastLoadedPage === undefined ||
-        //       maxPage === undefined ||
-        //       lastLoadedPage + 1 < maxPage) &&
-        //     !loading
-        // ),
         map(([_, { maxPage, lastLoadedPage }]) => {
           return fetchPhotos({
             payload: {
@@ -75,7 +66,7 @@ export class FetchPhotosEffect {
       this.actions$.pipe(
         ofType(fetchPhotosFail),
         tap(() => {
-          this.openSnackBar('Error', 'Close');
+          this.openSnackBar('Error loading photos', 'Close');
         })
       ),
     { dispatch: false }

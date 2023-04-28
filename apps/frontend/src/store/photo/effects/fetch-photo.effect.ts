@@ -33,7 +33,7 @@ export class FetchPhotoEffect {
       this.actions$.pipe(
         ofType(fetchPhotoFail),
         tap(() => {
-          this.openSnackBar('Error loading photos', 'Close');
+          this.openSnackBar('Error loading photo', 'Close');
         })
       ),
     { dispatch: false }
