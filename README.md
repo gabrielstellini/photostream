@@ -12,6 +12,8 @@ change any of the source files.
 Run `npm start-all` to start both the server and the client.
 
 Run `nx g c dashboard --project=frontend --skip-import` to create a component
+Run ` nx g @nrwl/angular:lib feature-x --standalone --routing --lazy --parent=apps/frontend/src/app/app.routes.ts` to
+create a new feature library
 
 ## Understand this workspace
 
