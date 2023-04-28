@@ -1,0 +1,17 @@
+.card {
+  width: 400px;
+  min-height: 300px;
+}
+
+.header-image {
+  // Fake profile image
+  background-image: url('https://picsum.photos/100');
+  background-size: cover;
+}
+
+img {
+  min-height: 240px;
+  background: transparent url('/assets/gif/loading.gif') no-repeat scroll center
+    center;
+  background-size: 40px;
+}

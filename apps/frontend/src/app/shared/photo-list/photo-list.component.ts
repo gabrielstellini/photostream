@@ -12,6 +12,14 @@ import { PhotoDto } from '../../../store/photo/types/photos.model';
 })
 export class PhotoListComponent {
   @Input() public items: PhotoDto[] = [];
-
   @Output() public loadNextPage = new EventEmitter<void>();
+
+  constructor() {
+    console.log('PhotoListComponent');
+  }
+
+  public trackById = (index: number): number => {
+    // console.log(currentItem.id);
+    return index;
+  };
 }

@@ -38,7 +38,7 @@ export class FetchPhotosEffect {
         map(([_, { maxPage, lastLoadedPage }]) => {
           return fetchPhotos({
             payload: {
-              _page: lastLoadedPage !== undefined ? lastLoadedPage + 1 : 0,
+              _page: lastLoadedPage !== undefined ? lastLoadedPage + 1 : 1,
               _limit: 20,
             },
           });

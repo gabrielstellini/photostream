@@ -20,8 +20,8 @@ export const fetchPhotosReducer = createReducer(
   initialState,
   on(
     fetchPhotos,
-    (_state, _action): FetchPhotosState => ({
-      ...initialState,
+    (state, _action): FetchPhotosState => ({
+      ...state,
       loading: true,
     })
   ),
