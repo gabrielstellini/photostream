@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { UserBackendService } from '../services/user-backend.service';
+import { UserBackend } from '../services/user-backend.service';
 import {
   getUser,
   getUserFail,
@@ -28,8 +28,5 @@ export class GetUserEffects {
       )
   );
 
-  constructor(
-    private actions$: Actions,
-    private userBackend: UserBackendService
-  ) {}
+  constructor(private actions$: Actions, private userBackend: UserBackend) {}
 }

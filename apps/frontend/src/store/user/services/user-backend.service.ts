@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class UserBackendService {
+export class UserBackend {
   constructor(private http: HttpClient) {}
 
   public getUser(): Observable<UserResponseType> {
