@@ -1,7 +1,14 @@
 <ng-container *ngIf="item; else loading">
   <mat-card class="card">
     <mat-card-header>
-      <div class="header-image" mat-card-avatar></div>
+      <div
+        [ngStyle]="{
+          'background-image':
+            'url(https://picsum.photos/30?skip_cache' + item.id + ')'
+        }"
+        class="header-image"
+        mat-card-avatar
+      ></div>
       <mat-card-title>{{ item.author }}</mat-card-title>
       <mat-card-subtitle>
         <a [href]="item.url" target="_blank">Source</a>
