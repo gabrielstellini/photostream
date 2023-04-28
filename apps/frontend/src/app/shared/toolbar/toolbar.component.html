@@ -1,0 +1,26 @@
+<header>
+  <mat-toolbar color="primary">
+    <!--    <img src="/assets/img/logo_3.png" />-->
+    <span>PhotoStream</span>
+
+    <!--I recommend anchors over buttons for links-->
+    <!--but the requirements are different-->
+    <button
+      [disableRipple]="true"
+      [routerLinkActiveOptions]="{ exact: true }"
+      mat-button
+      routerLink="/"
+      routerLinkActive="active"
+    >
+      Photos
+    </button>
+    <button
+      [disableRipple]="true"
+      mat-button
+      routerLink="/favourites"
+      routerLinkActive="active"
+    >
+      Favourites
+    </button>
+  </mat-toolbar>
+</header>

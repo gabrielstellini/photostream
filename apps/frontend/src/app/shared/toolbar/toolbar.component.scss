@@ -1,0 +1,36 @@
+@use 'sizes' as sizes;
+@use 'animations' as animations;
+@use 'palettes' as palettes;
+
+img {
+  height: 80%;
+  object-fit: contain;
+  filter: saturate(0.5);
+}
+
+button {
+  opacity: 0.7;
+  text-underline-offset: 4px;
+
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: opacity animations.$medium-duration,
+    text-decoration-color animations.$medium-duration;
+
+  &:first-of-type {
+    margin-left: sizes.$spacing-l;
+  }
+
+  &:not(:last-of-type) {
+    margin-right: sizes.$spacing-s;
+  }
+
+  &.active {
+    opacity: 1;
+    text-decoration-color: white;
+  }
+}
+
+mat-toolbar {
+  background: map-get(palettes.$primary, 300) !important;
+}
