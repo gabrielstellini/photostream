@@ -1,0 +1,10 @@
+<div [style.bottom]="thresholdPosition" class="container">
+  <ng-content></ng-content>
+
+  <div
+    [ngStyle]="{ bottom: thresholdPosition + 'px' }"
+    [observer]="observer"
+    class="intersection-observer"
+    psObserverChild
+  ></div>
+</div>

@@ -1,1 +1,3 @@
-<ps-photo-list [items]="items"></ps-photo-list>
+<ps-infinite-scroll (bottomReached)="loadNextPage()">
+  <ps-photo-list [items]="items"></ps-photo-list>
+</ps-infinite-scroll>
