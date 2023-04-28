@@ -31,6 +31,7 @@ import { filter, take } from 'rxjs';
 })
 export class PhotosContainerComponent implements OnInit {
   public items: PhotoDto[] = [];
+  public loading = false;
 
   constructor(
     private photoFacade: PhotoFacade,
@@ -40,6 +41,7 @@ export class PhotosContainerComponent implements OnInit {
   public ngOnInit(): void {
     this.photoFacade.photos$.pipe(untilDestroyed(this)).subscribe((photos) => {
       this.items = photos?.data?.items ?? [];
+      this.loading = photos?.loading ?? false;
       this.cdk.detectChanges();
     });
   }

@@ -16,12 +16,20 @@ import {
   throttleTime,
 } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PageSpinnerComponent } from './page-spinner/page-spinner.component';
 
 @UntilDestroy()
 @Component({
   selector: 'ps-infinite-scroll',
   standalone: true,
-  imports: [CommonModule, ObserverChildDirective, PhotoListComponent],
+  imports: [
+    CommonModule,
+    ObserverChildDirective,
+    PhotoListComponent,
+    MatProgressSpinnerModule,
+    PageSpinnerComponent,
+  ],
   templateUrl: './infinite-scroll.component.html',
   styleUrls: ['./infinite-scroll.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,6 +49,8 @@ export class InfiniteScrollComponent {
    * Time until event is triggered again, if the bottom is still reached
    */
   @Input() public recheckThresholdMs = 1000;
+
+  @Input() public loading = false;
 
   @Output() public bottomReached = new EventEmitter<void>();
 
