@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
+import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, CommonModule, MatButtonModule],
+  imports: [RouterModule, CommonModule, ToolbarComponent],
   selector: 'ps-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'frontend';
-}
+export class AppComponent {}
