@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ObserverChildDirective } from './observe-child.directive';
 import { PhotoListComponent } from '../../shared/photo-list/photo-list.component';
@@ -18,6 +24,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
   imports: [CommonModule, ObserverChildDirective, PhotoListComponent],
   templateUrl: './infinite-scroll.component.html',
   styleUrls: ['./infinite-scroll.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfiniteScrollComponent {
   /**

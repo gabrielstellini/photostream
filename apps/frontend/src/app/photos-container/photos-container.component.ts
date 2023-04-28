@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotoListComponent } from '../shared/photo-list/photo-list.component';
 import { PhotoFacade } from '../../store/photo/services/photo-facade.service';
@@ -22,15 +27,20 @@ import { filter, take } from 'rxjs';
   ],
   templateUrl: './photos-container.component.html',
   styleUrls: ['./photos-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotosContainerComponent implements OnInit {
   public items: PhotoDto[] = [];
 
-  constructor(private photoFacade: PhotoFacade) {}
+  constructor(
+    private photoFacade: PhotoFacade,
+    private cdk: ChangeDetectorRef
+  ) {}
 
   public ngOnInit(): void {
     this.photoFacade.photos$.pipe(untilDestroyed(this)).subscribe((photos) => {
       this.items = photos?.data?.items ?? [];
+      this.cdk.detectChanges();
     });
   }
 

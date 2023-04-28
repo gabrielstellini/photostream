@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotoDto } from '../../../store/photo/types/photos.model';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   templateUrl: './photo-list-item.component.html',
   styleUrls: ['./photo-list-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotoListItemComponent {
   @Input() public item?: PhotoDto;
