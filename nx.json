@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultProject": "frontend",
-  "npmScope": "nestangular-template",
+  "npmScope": "ng-photostream",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
