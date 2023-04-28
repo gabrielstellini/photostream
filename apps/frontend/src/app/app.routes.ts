@@ -4,15 +4,6 @@ import { PhotoStoreModule } from '../store/photo/photo-store.module';
 
 export const appRoutes: Route[] = [
   {
-    path: '',
-    pathMatch: 'full',
-    loadComponent: () =>
-      import('./photos-container/photos-container.component').then(
-        (m) => m.PhotosContainerComponent
-      ),
-    providers: [importProvidersFrom(PhotoStoreModule)],
-  },
-  {
     path: 'favourites',
     pathMatch: 'full',
     loadComponent: () =>
@@ -20,5 +11,26 @@ export const appRoutes: Route[] = [
         (m) => m.FavouritesContainerComponent
       ),
   },
-  { path: '**', pathMatch: 'full', redirectTo: '/' },
+  {
+    path: 'photos',
+    providers: [importProvidersFrom(PhotoStoreModule)],
+    children: [
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./photo-container/photo-container.component').then(
+            (m) => m.PhotoContainerComponent
+          ),
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        loadComponent: () =>
+          import('./photos-container/photos-container.component').then(
+            (m) => m.PhotosContainerComponent
+          ),
+      },
+    ],
+  },
+  { path: '**', pathMatch: 'full', redirectTo: '/photos' },
 ];

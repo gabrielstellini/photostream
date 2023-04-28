@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import {
+  IsActiveMatchOptions,
+  RouterLink,
+  RouterLinkActive,
+} from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -17,4 +21,11 @@ import { MatIconModule } from '@angular/material/icon';
     RouterLinkActive,
   ],
 })
-export class ToolbarComponent {}
+export class ToolbarComponent {
+  public options: IsActiveMatchOptions = {
+    matrixParams: 'ignored',
+    queryParams: 'ignored',
+    paths: 'subset',
+    fragment: 'exact',
+  };
+}
