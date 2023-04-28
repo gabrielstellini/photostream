@@ -14,7 +14,12 @@
         <a [href]="item.url" target="_blank">Source</a>
       </mat-card-subtitle>
     </mat-card-header>
-    <img [src]="item.download_url" alt="Photo of a Shiba Inu" mat-card-image />
+    <img
+      [routerLink]="item.id"
+      [src]="item.download_url"
+      alt="Gallery photo"
+      mat-card-image
+    />
     <mat-card-content></mat-card-content>
     <mat-card-actions>
       <button color="primary" mat-fab>

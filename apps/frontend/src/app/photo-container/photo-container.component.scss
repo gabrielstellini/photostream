@@ -1,21 +1,25 @@
+@use 'sizes' as *;
+
 .container {
-  padding: 30px;
+  height: 100%;
+  margin: 0;
+  padding: $spacing-s;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
 }
 
 img {
-  object-fit: contain;
-  max-height: 100%;
-  max-width: 100%;
-  min-height: 240px;
+  height: auto;
+  max-height: calc(100vh - ($spacing-base * 40));
   background: transparent url('/assets/gif/loading.gif') no-repeat scroll center
     center;
   background-size: 40px;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 button {
-  margin: 0 auto;
-  justify-self: center;
+  margin: $spacing-s auto;
 }
