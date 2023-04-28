@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { UserBackendService } from '../services/user-backend.service';
-import { getUser, getUserSuccess } from '../actions/get-user-actions';
+import {
+  getUser,
+  getUserFail,
+  getUserSuccess,
+} from '../actions/get-user-actions';
+import { of } from 'rxjs';
 
 @Injectable()
 export class GetUserEffects {
@@ -18,7 +23,8 @@ export class GetUserEffects {
               })
             )
           );
-        })
+        }),
+        catchError(() => of(getUserFail()))
       )
   );
 

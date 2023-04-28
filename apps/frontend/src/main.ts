@@ -7,28 +7,23 @@ import { appRoutes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { importProvidersFrom } from '@angular/core';
-import { provideStore, StoreModule } from '@ngrx/store';
-import { EffectsModule, provideEffects } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { routerReducer } from '@ngrx/router-store';
 import { HttpClientModule } from '@angular/common/http';
-
-// These should be disabled on the prod build
-const developmentImports = [];
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CommonModule } from '@angular/common';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideEffects(),
-    provideStore(),
     provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
+
     importProvidersFrom(
-      HttpClientModule,
+      CommonModule,
       BrowserAnimationsModule,
-      StoreDevtoolsModule.instrument({
-        maxAge: 40,
-        logOnly: true,
-        autoPause: true,
-      }),
+      HttpClientModule
+    ),
+    importProvidersFrom(
       StoreModule.forRoot(
         {
           router: routerReducer,
@@ -43,7 +38,13 @@ bootstrapApplication(AppComponent, {
           },
         }
       ),
-      EffectsModule.forRoot([])
+      EffectsModule.forRoot([]),
+
+      StoreDevtoolsModule.instrument({
+        maxAge: 40,
+        logOnly: true,
+        autoPause: true,
+      })
     ),
   ],
 }).catch((err) => console.error(err));

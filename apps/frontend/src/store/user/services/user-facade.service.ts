@@ -7,7 +7,7 @@ import { getUser } from '../actions/get-user-actions';
   providedIn: 'root',
 })
 export class UserFacade {
-  public getUser$ = this.store.select(selectUser);
+  public user$ = this.store.select(selectUser);
 
   constructor(private store: Store) {}
 

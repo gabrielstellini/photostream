@@ -8,3 +8,5 @@
 <button (click)="fetchUser()" color="primary" mat-raised-button>
   NGRX Works
 </button>
+
+{{ user | async | json }}
