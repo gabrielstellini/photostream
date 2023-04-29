@@ -26,7 +26,8 @@ export class FetchPhotosEffect {
           this.store.select(selectPhotosPagination),
           this.store.select(selectPhotosLoading),
         ]),
-        map(([_, { maxPage, lastLoadedPage }]) => {
+        map((data) => {
+          const [_, { maxPage, lastLoadedPage }] = data;
           return fetchPhotos({
             payload: {
               _page: lastLoadedPage !== undefined ? lastLoadedPage + 1 : 1,
@@ -54,14 +55,14 @@ export class FetchPhotosEffect {
                   ),
                 },
               })
-            )
+            ),
+            catchError(() => of(fetchPhotosFail()))
           );
-        }),
-        catchError(() => of(fetchPhotosFail()))
+        })
       )
   );
 
-  public fetchFail$ = createEffect(
+  public showToast$ = createEffect(
     (): Actions =>
       this.actions$.pipe(
         ofType(fetchPhotosFail),

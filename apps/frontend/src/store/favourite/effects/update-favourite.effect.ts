@@ -20,16 +20,16 @@ export class UpdateFavouriteEffect {
     (): Actions =>
       this.actions$.pipe(
         ofType(addFavourite),
-        mergeMap(({ payload }) => {
-          return this.favouritesBackend.addFavourite(payload).pipe(
+        mergeMap(({ payload }) =>
+          this.favouritesBackend.addFavourite(payload).pipe(
             map((favourites) =>
               addFavouriteSuccess({
                 payload: favourites,
               })
-            )
-          );
-        }),
-        catchError(() => of(addFavouriteFail()))
+            ),
+            catchError(() => of(addFavouriteFail()))
+          )
+        )
       )
   );
 
@@ -37,25 +37,25 @@ export class UpdateFavouriteEffect {
     (): Actions =>
       this.actions$.pipe(
         ofType(removeFavourite),
-        mergeMap(({ payload }) => {
-          return this.favouritesBackend.removeFavourite(payload).pipe(
+        mergeMap(({ payload }) =>
+          this.favouritesBackend.removeFavourite(payload).pipe(
             map((favourites) =>
               removeFavouriteSuccess({
                 payload: favourites,
               })
-            )
-          );
-        }),
-        catchError(() => of(removeFavouriteFail()))
+            ),
+            catchError(() => of(removeFavouriteFail()))
+          )
+        )
       )
   );
 
-  public markingFavouritesFail$ = createEffect(
+  public showToast$ = createEffect(
     (): Actions =>
       this.actions$.pipe(
         ofType(addFavouriteFail, removeFavouriteFail),
         tap(() => {
-          this.openSnackBar('Error updating favourite', 'Close');
+          this.openSnackBar('Error updating the favourite status', 'Close');
         })
       ),
     { dispatch: false }

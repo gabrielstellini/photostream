@@ -15,20 +15,20 @@ export class FetchFavouritesEffect {
     (): Actions =>
       this.actions$.pipe(
         ofType(fetchFavourites),
-        mergeMap(() => {
-          return this.favouritesBackend.fetchFavourites().pipe(
+        mergeMap(() =>
+          this.favouritesBackend.fetchFavourites().pipe(
             map((favourites) =>
               fetchFavouritesSuccess({
                 payload: favourites,
               })
-            )
-          );
-        }),
-        catchError(() => of(fetchFavouritesFail()))
+            ),
+            catchError(() => of(fetchFavouritesFail()))
+          )
+        )
       )
   );
 
-  public fetchFavouritesFail$ = createEffect(
+  public showToast$ = createEffect(
     (): Actions =>
       this.actions$.pipe(
         ofType(fetchFavouritesFail),

@@ -15,20 +15,20 @@ export class FetchPhotoEffect {
     (): Actions =>
       this.actions$.pipe(
         ofType(fetchPhoto),
-        mergeMap(({ payload }) => {
-          return this.photoBackend.getPhoto(payload.id).pipe(
+        mergeMap(({ payload }) =>
+          this.photoBackend.getPhoto(payload.id).pipe(
             map((photos) =>
               fetchPhotoSuccess({
                 payload: photos,
               })
-            )
-          );
-        }),
-        catchError(() => of(fetchPhotoFail()))
+            ),
+            catchError(() => of(fetchPhotoFail()))
+          )
+        )
       )
   );
 
-  public fetchPhotoFail$ = createEffect(
+  public showToast$ = createEffect(
     (): Actions =>
       this.actions$.pipe(
         ofType(fetchPhotoFail),

@@ -16,8 +16,8 @@ export class FetchFavouritePhotosEffect {
     (): Actions =>
       this.actions$.pipe(
         ofType(fetchFavouritePhotos),
-        mergeMap(() => {
-          return this.favouritesBackend.fetchFavourites().pipe(
+        mergeMap(() =>
+          this.favouritesBackend.fetchFavourites().pipe(
             switchMap((favourites) =>
               this.photosBackend.getPhotosById(favourites)
             ),
@@ -25,19 +25,19 @@ export class FetchFavouritePhotosEffect {
               fetchFavouritesPhotosSuccess({
                 payload: favouritePhotos,
               })
-            )
-          );
-        }),
-        catchError(() => of(fetchFavouritePhotosFail()))
+            ),
+            catchError(() => of(fetchFavouritePhotosFail()))
+          )
+        )
       )
   );
 
-  public fetchFavouritePhotosFail$ = createEffect(
+  public showToast$ = createEffect(
     (): Actions =>
       this.actions$.pipe(
         ofType(fetchFavouritePhotosFail),
         tap(() => {
-          this.openSnackBar('Error loading favourites', 'Close');
+          this.openSnackBar('Error loading your favourite photos', 'Close');
         })
       ),
     { dispatch: false }
