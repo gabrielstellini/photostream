@@ -13,7 +13,7 @@ import { PageSpinnerComponent } from '../shared/page-spinner/page-spinner.compon
 
 @UntilDestroy()
 @Component({
-  selector: 'ps-photo-container',
+  selector: 'ps-photo-detail',
   standalone: true,
   imports: [
     CommonModule,
@@ -21,10 +21,10 @@ import { PageSpinnerComponent } from '../shared/page-spinner/page-spinner.compon
     MatProgressSpinnerModule,
     PageSpinnerComponent,
   ],
-  templateUrl: './photo-container.component.html',
-  styleUrls: ['./photo-container.component.scss'],
+  templateUrl: './photo-detail.component.html',
+  styleUrls: ['./photo-detail.component.scss'],
 })
-export class PhotoContainerComponent implements OnInit {
+export class PhotoDetailComponent implements OnInit {
   public photo: Nullable<PhotoDto> = null;
   public photoLoading = true;
   public isFavourite = false;
