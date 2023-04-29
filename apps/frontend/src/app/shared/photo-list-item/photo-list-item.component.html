@@ -1,5 +1,5 @@
 <ng-container *ngIf="item; else loading">
-  <mat-card class="card">
+  <mat-card class="card" data-cy="card">
     <mat-card-header>
       <div
         [ngStyle]="{
@@ -9,17 +9,14 @@
         class="header-image"
         mat-card-avatar
       ></div>
-      <mat-card-title>{{ item.author }}</mat-card-title>
+      <mat-card-title data-cy="author">{{ item.author }}</mat-card-title>
       <mat-card-subtitle>
-        <a [href]="item.url" target="_blank">Source</a>
+        <a [href]="item.url" data-cy="source-link" target="_blank">Source</a>
       </mat-card-subtitle>
     </mat-card-header>
-    <img
-      [routerLink]="'/photos/' + item.id"
-      [src]="item.download_url"
-      alt="Gallery photo"
-      mat-card-image
-    />
+    <a [routerLink]="'/photos/' + item.id" class="image-link">
+      <img [src]="item.download_url" alt="Gallery photo" mat-card-image />
+    </a>
   </mat-card>
 </ng-container>
 
