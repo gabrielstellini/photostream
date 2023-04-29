@@ -15,8 +15,4 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     EffectsModule.forFeature(photoEffects),
   ],
 })
-export class PhotoStoreModule {
-  constructor() {
-    console.log('PhotoStoreModule loaded');
-  }
-}
+export class PhotoStoreModule {}

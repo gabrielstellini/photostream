@@ -1,9 +1,0 @@
-@use 'sizes' as sizes;
-@use 'palettes' as palette;
-
-header {
-  border-bottom: 1px solid map-get(palette.$accent, 400);
-}
-
-section {
-}
