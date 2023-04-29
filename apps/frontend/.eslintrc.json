@@ -35,7 +35,8 @@
     },
     {
       "files": [
-        "*.html"
+        "*.html",
+        "*mock*"
       ],
       "extends": [
         "plugin:@nrwl/nx/angular-template"
