@@ -1,5 +1,7 @@
+@use 'sizes' as *;
+
 div {
   display: flex;
   justify-content: center;
-  padding: 20px 0;
+  padding: $spacing-l 0;
 }
