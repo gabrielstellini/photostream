@@ -49,8 +49,7 @@ describe('FetchPhotoEffect', () => {
       id: '1',
       author: 'test',
       url: 'test',
-      width: 1,
-      height: 1,
+      thumbnail_url: 'test',
       download_url: 'test',
     };
 

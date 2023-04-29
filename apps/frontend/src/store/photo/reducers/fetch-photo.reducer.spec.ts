@@ -36,8 +36,7 @@ describe('fetchPhotoReducer', () => {
       author: 'John Doe',
       url: 'https://example.com/image.jpg',
       download_url: 'https://example.com/image-download.jpg',
-      height: 100,
-      width: 100,
+      thumbnail_url: 'https://example.com/image-thumbnail.jpg',
     };
     const action = fetchPhotoSuccess({ payload });
     const expectedState: FetchPhotoState = {

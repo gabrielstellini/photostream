@@ -15,7 +15,7 @@
       </mat-card-subtitle>
     </mat-card-header>
     <a [routerLink]="'/photos/' + item.id" class="image-link">
-      <img [src]="item.download_url" alt="Gallery photo" mat-card-image />
+      <img [src]="item.thumbnail_url" alt="Gallery photo" mat-card-image />
     </a>
   </mat-card>
 </ng-container>

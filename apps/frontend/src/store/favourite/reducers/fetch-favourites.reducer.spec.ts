@@ -54,8 +54,7 @@ describe('fetchFavouritesReducer', () => {
     const newFavourite: PhotoDto = {
       id: 'test3',
       author: 'test3',
-      width: 123,
-      height: 123,
+      thumbnail_url: 'test3',
       url: 'test3',
       download_url: 'test3',
     };

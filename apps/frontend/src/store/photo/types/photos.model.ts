@@ -2,9 +2,8 @@
 export interface PhotoDto {
   id: string;
   author: string;
-  width: number;
-  height: number;
   url: string;
+  thumbnail_url: string;
   download_url: string;
 }
 

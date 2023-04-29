@@ -19,10 +19,9 @@ describe('PhotosContainerComponent', () => {
         {
           id: '1',
           download_url: '',
+          thumbnail_url: '',
           url: '',
           author: '',
-          height: 2,
-          width: 2,
         },
       ],
       maxPage: 2,

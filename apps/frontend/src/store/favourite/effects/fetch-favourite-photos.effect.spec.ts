@@ -61,16 +61,14 @@ describe('FetchFavouritePhotosEffect', () => {
         id: favourites[0],
         author: 'test',
         url: 'test',
-        width: 1,
-        height: 1,
+        thumbnail_url: 'test',
         download_url: 'test',
       },
       {
         id: favourites[1],
         author: 'test2',
         url: 'test2',
-        width: 1,
-        height: 1,
+        thumbnail_url: 'test2',
         download_url: 'test2',
       },
     ];
