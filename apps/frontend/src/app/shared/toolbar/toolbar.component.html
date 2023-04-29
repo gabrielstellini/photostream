@@ -1,12 +1,10 @@
 <header>
-  <mat-toolbar color="primary">
-    <!--    <img src="/assets/img/logo_3.png" />-->
-    <a routerLink="/">PhotoStream</a>
+  <mat-toolbar>
+    <a class="brand" routerLink="/">PhotoStream</a>
 
-    <!--I recommend anchors over buttons for links-->
-    <!--but the requirements are different-->
     <button
       [disableRipple]="true"
+      class="nav-button"
       data-cy="photo-link"
       mat-button
       routerLink="/photos"
@@ -16,6 +14,7 @@
     </button>
     <button
       [disableRipple]="true"
+      class="nav-button"
       data-cy="favourites-link"
       mat-button
       routerLink="/favourites"

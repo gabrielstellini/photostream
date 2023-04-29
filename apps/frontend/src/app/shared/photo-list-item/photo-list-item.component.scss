@@ -1,6 +1,11 @@
 .card {
-  width: 400px;
+  width: clamp(300px, 30vw, 400px);
   min-height: 300px;
+
+  // when screen is small, clamp to 100vw
+  @media (max-width: 600px) {
+    width: clamp(300px, 100vw, 400px);
+  }
 }
 
 // Fake profile image
