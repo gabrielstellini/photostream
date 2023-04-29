@@ -1,9 +1,9 @@
 import { createAction, props } from '@ngrx/store';
-import { FavouriteDto } from '../types/favourite.model';
+import { FavouriteDto, RemoveFavouriteRequest } from '../types/favourite.model';
 
 export const removeFavourite = createAction(
   '[Favourite] Remove favourite',
-  props<{ payload: string }>()
+  props<{ payload: RemoveFavouriteRequest }>()
 );
 
 export const removeFavouriteSuccess = createAction(

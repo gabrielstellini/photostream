@@ -18,6 +18,7 @@ export const appRoutes: Route[] = [
     providers: [importProvidersFrom(PhotoStoreModule)],
     children: [
       {
+        providers: [importProvidersFrom(FavouriteStoreModule)],
         path: ':id',
         loadComponent: () =>
           import('./photo-container/photo-container.component').then(

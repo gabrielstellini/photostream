@@ -1,46 +1,48 @@
 import { Nullable, StateSlice } from '../../shared/types/state.type';
-import { FavouritesStore } from '../types/favourite.model';
+import { FavouritePhotosStore } from '../types/favourite.model';
 import { createReducer, on } from '@ngrx/store';
 import {
-  fetchFavourites,
-  fetchFavouritesFail,
-  fetchFavouritesSuccess,
-} from '../actions/fetch-favourites.actions';
+  fetchFavouritePhotos,
+  fetchFavouritePhotosFail,
+  fetchFavouritesPhotosSuccess,
+} from '../actions/fetch-favourite-photos.actions';
 import { addFavouriteSuccess } from '../actions/add-favourite.action';
 import { removeFavouriteSuccess } from '../actions/remove-favourite.action';
 
-export type FetchFavouritesState = StateSlice<Nullable<FavouritesStore>>;
+export type FetchFavouritePhotosState = StateSlice<
+  Nullable<FavouritePhotosStore>
+>;
 
-const initialState: FetchFavouritesState = {
+const initialState: FetchFavouritePhotosState = {
   data: null,
   loading: false,
   loaded: false,
   error: false,
 };
 
-export const fetchFavouritesReducer = createReducer(
+export const fetchFavouritePhotosReducer = createReducer(
   initialState,
   on(
-    fetchFavourites,
-    (_state, _action): FetchFavouritesState => ({
+    fetchFavouritePhotos,
+    (_state, _action): FetchFavouritePhotosState => ({
       ...initialState,
       loading: true,
     })
   ),
   on(
-    fetchFavouritesSuccess,
-    (state, action): FetchFavouritesState => ({
+    fetchFavouritesPhotosSuccess,
+    (state, action): FetchFavouritePhotosState => ({
       ...state,
       data: {
-        ids: action.payload,
+        photos: action.payload,
       },
       loading: false,
       loaded: true,
     })
   ),
   on(
-    fetchFavouritesFail,
-    (state): FetchFavouritesState => ({
+    fetchFavouritePhotosFail,
+    (state): FetchFavouritePhotosState => ({
       ...state,
       loading: false,
       loaded: false,
@@ -51,10 +53,10 @@ export const fetchFavouritesReducer = createReducer(
   // These 2 actions prevent an extra "fetch" request. Should only be done where stale data is not a problem.
   on(
     addFavouriteSuccess,
-    (state, action): FetchFavouritesState => ({
+    (state, action): FetchFavouritePhotosState => ({
       ...state,
       data: {
-        ids: [...(state?.data?.ids ?? []), action.payload.id],
+        photos: [...(state?.data?.photos ?? []), action.payload],
       },
       loading: false,
       loaded: true,
@@ -62,10 +64,12 @@ export const fetchFavouritesReducer = createReducer(
   ),
   on(
     removeFavouriteSuccess,
-    (state, action): FetchFavouritesState => ({
+    (state, action): FetchFavouritePhotosState => ({
       ...state,
       data: {
-        ids: (state?.data?.ids ?? [])?.filter((id) => id !== action.payload),
+        photos: (state?.data?.photos ?? [])?.filter(
+          (photo) => photo.id !== action.payload
+        ),
       },
       loading: false,
       loaded: true,

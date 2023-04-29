@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FavouritesFacade } from '../../store/favourite/services/favourite-facade.service';
+import { FavouriteFacade } from '../../store/favourite/services/favourite-facade.service';
 
 @Component({
   selector: 'ps-favourites-container',
@@ -10,7 +10,7 @@ import { FavouritesFacade } from '../../store/favourite/services/favourite-facad
   styleUrls: ['./favourites-container.component.scss'],
 })
 export class FavouritesContainerComponent {
-  constructor(private favouriteStore: FavouritesFacade) {
-    favouriteStore.fetchFavourites();
+  constructor(private favouriteStore: FavouriteFacade) {
+    favouriteStore.fetchFavouritePhotos();
   }
 }

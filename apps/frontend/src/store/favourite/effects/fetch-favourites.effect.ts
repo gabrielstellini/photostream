@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FavouriteBackend } from '../services/favourite-backend.service';
 import {
   fetchFavourites,
   fetchFavouritesFail,
   fetchFavouritesSuccess,
 } from '../actions/fetch-favourites.actions';
-import { FavouriteBackend } from '../services/favourite-backend.service';
 
 @Injectable()
-export class FetchFavouriteEffect {
+export class FetchFavouritesEffect {
   public fetchFavourites$ = createEffect(
     (): Actions =>
       this.actions$.pipe(

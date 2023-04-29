@@ -1,6 +1,18 @@
-<div *ngIf="photo" class="container">
-  <img [src]="photo.download_url" class="image" />
-  <button color="primary" mat-raised-button>
+<div
+  *ngIf="!photoLoading && !favouritesLoading && photo; else loading"
+  class="container"
+>
+  <img [src]="photo.download_url" alt="gallery photo" class="image" />
+  <button
+    (click)="toggleFavourite()"
+    [disabled]="updateFavouritesLoading"
+    color="primary"
+    mat-raised-button
+  >
     {{ isFavourite ? 'Remove from favourites' : 'Add to favourites' }}
   </button>
 </div>
+
+<ng-template #loading>
+  <mat-spinner [diameter]="40"></mat-spinner>
+</ng-template>

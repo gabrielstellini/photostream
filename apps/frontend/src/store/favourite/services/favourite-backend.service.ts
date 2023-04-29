@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
 import { FavouritesResponse } from '../types/favourite.model';
 import { RandomRangePipe } from '../../shared/pipes/random-range.pipe';
+import { PhotoBackend } from '../../photo/services/photo-backend.service';
+import { PhotoDto } from '../../photo/types/photos.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavouriteBackend {
   private randomRange = new RandomRangePipe();
+
+  constructor(private photosBackend: PhotoBackend) {}
 
   /**
    * This task states that I cannot use a backend server to retain state,
@@ -24,13 +28,15 @@ export class FavouriteBackend {
     //   .pipe(delay(this.randomRange.transform(200, 300)));
   }
 
-  public addFavourite(id: string): Observable<string> {
+  public addFavourite(id: string): Observable<PhotoDto> {
     localStorage.setItem(
       'favourites',
       JSON.stringify([...this.getFavourites(), id])
     );
 
-    return of(id).pipe(delay(this.randomRange.transform(200, 300)));
+    return this.photosBackend
+      .getPhoto(id)
+      .pipe(delay(this.randomRange.transform(200, 300)));
 
     // return this.http
     //   .post<FavouriteResponse>(BackendUrls.favourites(), { id })

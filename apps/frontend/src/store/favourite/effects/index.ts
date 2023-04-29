@@ -1,4 +1,9 @@
-import { FetchFavouriteEffect } from './fetch-favourite.effect';
+import { FetchFavouritePhotosEffect } from './fetch-favourite-photos.effect';
 import { UpdateFavouriteEffect } from './update-favourite.effect';
+import { FetchFavouritesEffect } from './fetch-favourites.effect';
 
-export const favouriteEffects = [FetchFavouriteEffect, UpdateFavouriteEffect];
+export const favouriteEffects = [
+  FetchFavouritePhotosEffect,
+  FetchFavouritesEffect,
+  UpdateFavouriteEffect,
+];

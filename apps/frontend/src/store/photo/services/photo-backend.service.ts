@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { delay, Observable } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import {
   PhotoResponse,
@@ -31,6 +31,26 @@ export class PhotoBackend {
       .get<PhotosResponse>(BackendUrls.photos(), {
         params,
         observe: 'response',
+      })
+      .pipe(delay(this.randomRange.transform(200, 300)));
+  }
+
+  public getPhotosById(
+    photoRequestParams: string[]
+  ): Observable<PhotosResponse> {
+    if (!photoRequestParams.length) {
+      return of([]).pipe(delay(this.randomRange.transform(200, 300)));
+    }
+
+    let params = new HttpParams();
+
+    photoRequestParams.forEach((id) => {
+      params = params.append('id', id);
+    });
+
+    return this.http
+      .get<PhotosResponse>(BackendUrls.photos(), {
+        params,
       })
       .pipe(delay(this.randomRange.transform(200, 300)));
   }

@@ -6,6 +6,19 @@ export const selectFavourites = createSelector(
   (state) => state?.fetchFavourites
 );
 
+export const favouritesLoading = createSelector(
+  selectFavourites,
+  (state) => state?.loading
+);
+
+export const favouritesHasId = (id: string) =>
+  createSelector(selectFavourites, (state) => state?.data?.ids?.includes(id));
+
+export const selectFavouritePhotos = createSelector(
+  selectFavouritesFeature,
+  (state) => state?.fetchFavouritePhotos
+);
+
 export const updateFavourite = createSelector(
   selectFavouritesFeature,
   (state) => state?.updateFavourite
