@@ -78,11 +78,9 @@ export class PhotoDetailComponent implements OnInit {
       this.photoLoading = photo?.loading ?? false;
     });
 
-    this.photoFacade.photo$
+    this.activatedRoute.params
       .pipe(
-        switchMap((photo) =>
-          this.favouriteFacade.isFavourite$(photo?.data?.id ?? '')
-        )
+        switchMap((params) => this.favouriteFacade.isFavourite$(params['id']))
       )
       .subscribe((isFavourite) => {
         this.isFavourite = isFavourite ?? false;
