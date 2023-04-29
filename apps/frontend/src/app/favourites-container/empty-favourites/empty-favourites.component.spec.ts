@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmptyFavouritesComponent } from './empty-favourites.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('EmptyFavouritesComponent', () => {
   let component: EmptyFavouritesComponent;
@@ -8,9 +9,8 @@ describe('EmptyFavouritesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ EmptyFavouritesComponent ]
-    })
-    .compileComponents();
+      imports: [EmptyFavouritesComponent, RouterTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EmptyFavouritesComponent);
     component = fixture.componentInstance;

@@ -17,7 +17,7 @@ import {
 } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { PageSpinnerComponent } from './page-spinner/page-spinner.component';
+import { ContentSpinnerComponent } from './content-spinner/content-spinner.component';
 
 @UntilDestroy()
 @Component({
@@ -28,7 +28,7 @@ import { PageSpinnerComponent } from './page-spinner/page-spinner.component';
     ObserverChildDirective,
     PhotoListComponent,
     MatProgressSpinnerModule,
-    PageSpinnerComponent,
+    ContentSpinnerComponent,
   ],
   templateUrl: './infinite-scroll.component.html',
   styleUrls: ['./infinite-scroll.component.scss'],
