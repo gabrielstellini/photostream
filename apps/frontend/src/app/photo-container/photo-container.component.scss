@@ -10,6 +10,8 @@
 
 img {
   height: auto;
+  min-width: 40px;
+  min-height: 140px;
   max-height: calc(100vh - ($spacing-base * 40));
   background: transparent url('/assets/gif/loading.gif') no-repeat scroll center
     center;
