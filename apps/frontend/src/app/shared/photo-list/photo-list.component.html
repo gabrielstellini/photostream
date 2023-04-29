@@ -1,6 +1,12 @@
 <div class="container">
+  <!--  1600 = page size (20) multiplied by the delay per item (80)-->
+  <!--  This makes the animation speeds 'reset' on each page load-->
   <ps-photo-list-item
-    *ngFor="let item of items; trackBy: trackById"
+    *ngFor="let item of items; trackBy: trackById; let i = index"
+    [@inOutAnimation]="{
+      value: {},
+      params: { delay: animate ? (i * 80) % 1600 : 0 }
+    }"
     [item]="item"
   ></ps-photo-list-item>
 </div>

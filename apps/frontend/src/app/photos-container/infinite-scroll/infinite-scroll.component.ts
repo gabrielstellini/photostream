@@ -38,7 +38,7 @@ export class InfiniteScrollComponent {
   /**
    *  Pixels from bottom of page to trigger bottomReached event
    */
-  @Input() public thresholdPosition = 500;
+  @Input() public thresholdPosition = 200;
 
   /**
    * Time until event is triggered

@@ -8,5 +8,6 @@ import { PhotoDto } from '../../store/photo/types/photos.model';
 })
 export class MockPhotoListComponent {
   @Input() public items: PhotoDto[] = [];
+  @Input() public animate: boolean = false;
   @Output() public loadNextPage = new EventEmitter<void>();
 }
