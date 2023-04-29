@@ -1,0 +1,23 @@
+@use 'sizes' as *;
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: 80px;
+}
+
+img {
+  width: clamp(100px, 90vw, 300px);
+}
+
+a,
+a:visited {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: inherit;
+
+  font-size: $font-md;
+}

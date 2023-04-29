@@ -44,11 +44,11 @@ export class FavouriteBackend {
   }
 
   public removeFavourite(id: string): Observable<string> {
-    const favourites = this.getFavourites().filter(
+    const newFavourites = this.getFavourites().filter(
       (currentId) => currentId !== id
     );
 
-    localStorage.setItem('favourites', JSON.stringify([...favourites, id]));
+    localStorage.setItem('favourites', JSON.stringify(newFavourites));
 
     return of(id).pipe(delay(this.randomRange.transform(200, 300)));
 

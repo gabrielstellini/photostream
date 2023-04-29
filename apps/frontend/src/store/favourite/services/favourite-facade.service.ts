@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import {
   favouritesHasId,
   favouritesLoading,
+  selectFavouritePhotos,
   selectFavourites,
   updateFavouriteLoading,
 } from '../selectors/favourite.selector';
@@ -20,6 +21,7 @@ import { fetchFavourites } from '../actions/fetch-favourites.actions';
 })
 export class FavouriteFacade {
   public favourites$ = this.store.select(selectFavourites);
+  public favouritePhotos$ = this.store.select(selectFavouritePhotos);
   public updateLoading$ = this.store.select(updateFavouriteLoading);
   public favouritesLoading$ = this.store.select(favouritesLoading);
 

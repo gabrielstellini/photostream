@@ -9,12 +9,18 @@ import { FavouriteFacade } from '../../store/favourite/services/favourite-facade
 import { switchMap } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PageSpinnerComponent } from '../shared/page-spinner/page-spinner.component';
 
 @UntilDestroy()
 @Component({
   selector: 'ps-photo-container',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatProgressSpinnerModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    PageSpinnerComponent,
+  ],
   templateUrl: './photo-container.component.html',
   styleUrls: ['./photo-container.component.scss'],
 })
