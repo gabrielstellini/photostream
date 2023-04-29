@@ -7,11 +7,14 @@ import {
   PhotosResponse,
 } from '../types/photos.model';
 import { BackendUrls } from '../../../statics/backendUrls.static';
+import { RandomRangePipe } from '../../shared/pipes/random-range.pipe';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PhotoBackend {
+  private randomRange = new RandomRangePipe();
+
   constructor(private http: HttpClient) {}
 
   public getPhotos(
@@ -29,14 +32,10 @@ export class PhotoBackend {
         params,
         observe: 'response',
       })
-      .pipe(delay(this.randomRange(200, 300)));
+      .pipe(delay(this.randomRange.transform(200, 300)));
   }
 
   public getPhoto(id: string): Observable<PhotoResponse> {
     return this.http.get<PhotoResponse>(BackendUrls.photo(id));
-  }
-
-  private randomRange(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }
