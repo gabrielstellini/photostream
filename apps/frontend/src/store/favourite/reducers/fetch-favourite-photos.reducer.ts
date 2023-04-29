@@ -24,7 +24,7 @@ export const fetchFavouritePhotosReducer = createReducer(
   initialState,
   on(
     fetchFavouritePhotos,
-    (_state, _action): FetchFavouritePhotosState => ({
+    (): FetchFavouritePhotosState => ({
       ...initialState,
       loading: true,
     })

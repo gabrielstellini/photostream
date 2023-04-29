@@ -26,15 +26,14 @@ export class FetchPhotosEffect {
           this.store.select(selectPhotosPagination),
           this.store.select(selectPhotosLoading),
         ]),
-        map((data) => {
-          const [_, { maxPage, lastLoadedPage }] = data;
-          return fetchPhotos({
+        map(([, { lastLoadedPage }]) =>
+          fetchPhotos({
             payload: {
               _page: lastLoadedPage !== undefined ? lastLoadedPage + 1 : 1,
               _limit: 20,
             },
-          });
-        })
+          })
+        )
       )
   );
 

@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { cold, hot } from 'jasmine-marbles';
-import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FetchFavouritePhotosEffect } from './fetch-favourite-photos.effect';
 import {
@@ -12,9 +11,10 @@ import {
 import { FavouriteBackend } from '../services/favourite-backend.service';
 import { PhotoBackend } from '../../photo/services/photo-backend.service';
 import { PhotoDto } from '../../photo/types/photos.model';
+import { TestHotObservable } from 'jasmine-marbles/src/test-observables';
 
 describe('FetchFavouritePhotosEffect', () => {
-  let actions$: Observable<any>;
+  let actions$: TestHotObservable;
   let effects: FetchFavouritePhotosEffect;
   let favouritesBackend: FavouriteBackend;
   let photosBackend: PhotoBackend;

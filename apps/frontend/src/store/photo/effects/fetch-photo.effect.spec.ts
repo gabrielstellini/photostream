@@ -17,7 +17,6 @@ describe('FetchPhotoEffect', () => {
   let actions$: Observable<Action>;
   let effects: FetchPhotoEffect;
   let photoBackend: jest.Mocked<PhotoBackend>;
-  let snackBar: jest.Mocked<MatSnackBar>;
 
   beforeEach(() => {
     const photoBackendMock: Partial<PhotoBackend> = {
@@ -39,7 +38,6 @@ describe('FetchPhotoEffect', () => {
 
     effects = TestBed.inject(FetchPhotoEffect);
     photoBackend = TestBed.inject(PhotoBackend) as jest.Mocked<PhotoBackend>;
-    snackBar = TestBed.inject(MatSnackBar) as jest.Mocked<MatSnackBar>;
   });
 
   it('should be created', () => {

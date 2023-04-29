@@ -10,6 +10,7 @@ import {
   removeFavouriteSuccess,
 } from '../actions/remove-favourite.action';
 import { PhotoDto } from '../../photo/types/photos.model';
+import { Action } from '@ngrx/store/src/models';
 
 describe('updateFavouriteReducer', () => {
   const initialState = {
@@ -29,7 +30,7 @@ describe('updateFavouriteReducer', () => {
   };
 
   it('should return the initial state', () => {
-    const action = {} as any;
+    const action = {} as Action;
     const state = updateFavouriteReducer(initialState, action);
 
     expect(state).toBe(initialState);

@@ -22,7 +22,7 @@ export const fetchFavouritesReducer = createReducer(
   initialState,
   on(
     fetchFavourites,
-    (_state, _action): FetchFavouritesState => ({
+    (): FetchFavouritesState => ({
       ...initialState,
       loading: true,
     })
