@@ -3,8 +3,7 @@ import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 /**
- * Out of scope
- * but if nest was part of the task, I'd create a photos and favourites controller + services for the backend
+ * Out of scope for now
  */
 @Controller()
 export class AppController {
