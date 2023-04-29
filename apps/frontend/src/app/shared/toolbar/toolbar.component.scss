@@ -20,7 +20,6 @@ a:visited {
 }
 
 .nav-button {
-  opacity: 0.7;
   outline: 1px transparent solid;
   color: map-get(palettes.$accent, 100);
   transition: animations.$medium-duration outline-color;
@@ -34,14 +33,12 @@ a:visited {
   }
 
   &.active {
-    opacity: 1;
     outline-color: map-get(palettes.$accent, 100);
   }
 
   &:hover:not(.active),
   &:focus:not(.active) {
-    opacity: 0.8;
-    outline: 1px map-get(palettes.$accent, 200) solid !important; // override material button styles
+    outline: 1px map-get(palettes.$accent, 100) solid !important; // override material button styles
   }
 
   ::ng-deep {
@@ -53,7 +50,7 @@ a:visited {
 }
 
 mat-toolbar {
-  background: map-get(palettes.$primary, 300);
+  background: map-get(palettes.$primary, 400);
   color: white;
   padding: 0.5rem 1rem;
 }

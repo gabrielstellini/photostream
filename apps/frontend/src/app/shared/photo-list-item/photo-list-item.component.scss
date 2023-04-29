@@ -20,6 +20,10 @@ img {
     center;
   background-size: 40px;
   cursor: pointer;
+  float: left;
+  width: clamp(240px, 100%, 400px);
+  height: 100px;
+  object-fit: cover;
 }
 
 a {
