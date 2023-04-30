@@ -17,6 +17,10 @@ a:visited {
 .brand {
   font-weight: 400;
   font-size: sizes.$font-xl;
+
+  @media (max-width: 600px) {
+    font-size: sizes.$font-l;
+  }
 }
 
 .nav-button {

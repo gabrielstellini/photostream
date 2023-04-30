@@ -10,7 +10,7 @@
     "backend": "json-server --watch db.json",
     "start:all": "concurrently --kill-others \" nx run-many --target=serve -p frontend\"  \"npm run backend\"",
     "e2e:dev": "concurrently --kill-others \"nx e2e frontend-e2e --watch \" \"npm run backend\"",
-    "test-all": "nx run-many --all --target=test"
+    "test:all": "nx run-many --all --target=test"
   },
   "private": true,
   "dependencies": {
